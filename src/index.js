@@ -10,8 +10,6 @@ import { feature } from 'topojson';
 
   const svg = select('svg#map')
     .attr('viewBox', `0 0 ${width} ${height}`);
-    // .attr('width', width)
-    // .attr('height', height);
 
   const projection = geoKavrayskiy7()
     .scale(170)
@@ -37,15 +35,11 @@ import { feature } from 'topojson';
     .datum(graticule)
     .attr('class', 'graticule')
     .attr('d', path);
-
-  svg.append('use')
-    .attr('class', 'background-stroke')
-    .attr('xlink:href', '#sphere');
-
+    
   const world = await json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json');
-
+    
   const countries = feature(world, world.objects.countries).features;
-
+    
   svg.selectAll('path.country')
     .data(countries)
     .enter()
@@ -55,4 +49,9 @@ import { feature } from 'topojson';
     .append('title')
     .text(d => d.properties.name);
 
+  svg.append('use')
+    .attr('class', 'background-stroke')
+    .attr('xlink:href', '#sphere');
+    
 })();
+  
