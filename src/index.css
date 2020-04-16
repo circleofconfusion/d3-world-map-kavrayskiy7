@@ -1,0 +1,30 @@
+svg {
+  width: 100%;
+}
+
+.background-stroke {
+  stroke: black;
+  stroke-width: 4;
+  fill: none;
+}
+
+.background-fill {
+  stroke: none;
+  fill: white;
+}
+
+.graticule {
+  stroke: gray;
+  stroke-width: 1;
+  fill: none;
+}
+
+.country {
+  stroke: black;
+  stroke-width: 1;
+  fill: white;
+}
+
+.country:hover {
+  fill: red;
+}
